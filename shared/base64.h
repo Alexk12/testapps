@@ -1,5 +1,5 @@
 //
-// base65.h
+// base64.h
 //
 #pragma once
 #include <string>
