@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "../../libs/utils/utils.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,9 +14,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::on_pushButton_clicked()
 {
-    ui->label->setText("Test text - in test branch (2)");
+    Utils utils;
+    int val = utils.calcSum((int)3, (int)4);
+    int val2 = calcSum2((int)1, (int)2);
+    QString str = QString("Utils calc sum = %1, sum2=%2").arg(QString::number(val), QString::number(val2));
+    ui->label->setText(str);
 }
 

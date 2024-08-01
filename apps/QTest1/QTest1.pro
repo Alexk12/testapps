@@ -22,3 +22,10 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../libs/build-utils-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/release/ -lutils
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../libs/build-utils-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/ -lutils
+else:unix: LIBS += -L$$PWD/../../libs/build-utils-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/ -lutils
+
+INCLUDEPATH += $$PWD/../../libs/utils
+DEPENDPATH += $$PWD/../../libs/utils
